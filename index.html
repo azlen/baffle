@@ -35,7 +35,7 @@
 		    color:#374140;
 		    position: relative;
 		    display:inline-block;
-		    cursor:default;
+		    cursor:pointer;
 		    transition:all .1s;
 		    z-index:1;
 		}
@@ -308,7 +308,9 @@
 		var totalweight = 0;
 		for(var i = 0; i < alphabet.length; i++){
 			totalweight += alphabetweight[alphabet[i]];
-			aw+=alphabet[i].repeat(alphabetweight[alphabet[i]]);
+			for(var e = 0; e < alphabetweight[alphabet[i]]; e++){
+				aw+= alphabet[i];
+			}
 		}
 		var board = document.querySelector('#hex-container');
 		for(var row = 0; row < board.children.length; row++){
