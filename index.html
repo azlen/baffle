@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="white" />
-	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="viewport" content="user-scalable=no, width=600px" />
 	<script src="wordlist.js"></script>
 	<style>
 		html,body{
@@ -26,26 +26,26 @@
 		    border-left: 52px solid transparent;
 		    border-right: 52px solid transparent;
 		    position: absolute;
-		    top: -30px;
+		    top: -29px;
 
 		}
 
 		.hex {
-		    margin-top: 30px;
+		    margin-top: 28px;
 		    width: 104px;
 		    height: 60px;
 		    background-color: #374140;
 		    color:#374140;
 		    position: relative;
 		    display:inline-block;
-		    cursor:pointer;
-		    transition:all .1s;
+		    cursor:default;
+		    transition:all .3s;
 		    z-index:1;
 		}
 		.hex:hover{
 			background-color:#2A2C2B;
 			color:#2A2C2B;
-			transition:all .1s;
+			transition:all .15s;
 			z-index:666;
 		}
 		.hex span{
@@ -57,7 +57,7 @@
 			height:100%;
 			text-align:center;
 			color:#fff;
-			transition:all .1s;
+			transition:all .5s;
 		}
 		.hex span:before, .hex span:after{
 			position:absolute;
@@ -71,7 +71,7 @@
 		    content: "";
 		    width: 0;
 		    position: absolute;
-		    bottom: -30px;
+		    bottom: -29px;
 		    border-top: 30px solid;
 		    border-left: 52px solid transparent;
 		    border-right: 52px solid transparent;
@@ -115,8 +115,9 @@
 			left:0px;
 		}
 		.selectable{
-			background-color:#BB80DF;
-			color:#BB80DF;
+			background-color:#DF6546;
+			color:#DF6546;
+			cursor:pointer;
 		}
 		.selectable:hover{
 			background-color:#D9CB9E;
@@ -173,33 +174,33 @@
 <body ontouchmove="iosblockmove(event)">
 	<div id="hex-container">
 		<div class="row">
-			<div class="hex hex-1" data-number="1" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>1<span></div>
-			<div class="hex hex-2" data-number="2" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>2<span></div>
-			<div class="hex hex-3" data-number="3" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>3<span></div>
+			<div class="hex hex-1" data-number="1" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>1<span></div>
+			<div class="hex hex-2" data-number="2" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>2<span></div>
+			<div class="hex hex-3" data-number="3" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>3<span></div>
 		</div>
 		<div class="row">
-			<div class="hex hex-4" data-number="4" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>4<span></div>
-			<div class="hex hex-5" data-number="5" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>5<span></div>
-			<div class="hex hex-6" data-number="6" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>6<span></div>
-			<div class="hex hex-7" data-number="7" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>7<span></div>
+			<div class="hex hex-4" data-number="4" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>4<span></div>
+			<div class="hex hex-5" data-number="5" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>5<span></div>
+			<div class="hex hex-6" data-number="6" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>6<span></div>
+			<div class="hex hex-7" data-number="7" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>7<span></div>
 		</div>
 		<div class="row">
-			<div class="hex hex-8" data-number="8" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>8<span></div>
-			<div class="hex hex-9" data-number="9" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>9<span></div>
-			<div class="hex hex-10" data-number="10" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>10<span></div>
-			<div class="hex hex-11" data-number="11" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>11<span></div>
-			<div class="hex hex-12" data-number="12" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>12<span></div>
+			<div class="hex hex-8" data-number="8" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>8<span></div>
+			<div class="hex hex-9" data-number="9" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>9<span></div>
+			<div class="hex hex-10" data-number="10" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>10<span></div>
+			<div class="hex hex-11" data-number="11" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>11<span></div>
+			<div class="hex hex-12" data-number="12" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>12<span></div>
 		</div>
 		<div class="row">
-			<div class="hex hex-13" data-number="13" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>13<span></div>
-			<div class="hex hex-14" data-number="14" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>14<span></div>
-			<div class="hex hex-15" data-number="15" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>15<span></div>
-			<div class="hex hex-16" data-number="16" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>16<span></div>
+			<div class="hex hex-13" data-number="13" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>13<span></div>
+			<div class="hex hex-14" data-number="14" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>14<span></div>
+			<div class="hex hex-15" data-number="15" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>15<span></div>
+			<div class="hex hex-16" data-number="16" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>16<span></div>
 		</div>
 		<div class="row">
-			<div class="hex hex-17" data-number="17" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>17<span></div>
-			<div class="hex hex-18" data-number="18" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>18<span></div>
-			<div class="hex hex-19" data-number="19" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>19<span></div>
+			<div class="hex hex-17" data-number="17" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>17<span></div>
+			<div class="hex hex-18" data-number="18" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>18<span></div>
+			<div class="hex hex-19" data-number="19" onmousedown="hexclick(this)" ontouchstart="hexclick(this)"><span>19<span></div>
 		</div>
 	</div>
 	<ol id="wordlist"></ol>
@@ -327,6 +328,7 @@
 		}
 		function hexclick(hex){
 			if(hex.classList.contains('selectable') || selected === ''){
+				alert('HI');
 				if(document.querySelector('#tempstyle'))document.querySelector('#tempstyle').remove();
 
 				if(selected === ''){
@@ -375,7 +377,7 @@
 
 			var element = document.createElement('style');
 			element.id = 'tempstyle';
-			element.textContent = '.hex:hover{background-color:#D9CB9E;color:#D9CB9E;-webkit-transform:scale(1.1);}';
+			element.textContent = '.hex{cursor:pointer}.hex:hover{background-color:#D9CB9E;color:#D9CB9E;-webkit-transform:scale(1.1);}';
 			document.querySelector('head').appendChild(element);
 
 			lasthexclicked = undefined;
