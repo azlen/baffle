@@ -1,6 +1,9 @@
-<html>
+<html manifest="cache.manifest">
 <head>
 	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
 	<script src="wordlist.js"></script>
 	<style>
 		html,body{
@@ -167,7 +170,7 @@
 		
 	</style>
 </head>
-<body>
+<body ontouchmove="iosblockmove(event)">
 	<div id="hex-container">
 		<div class="row">
 			<div class="hex hex-1" data-number="1" onmousedown="hexclick(this)" ontouchstart="hexclick(this)" ontouchmove="hexclick(this)" ontouchend="hexclick(this)"><span>1<span></div>
@@ -378,6 +381,10 @@
 			lasthexclicked = undefined;
 		}
 		enter();
+
+		function iosblockmove(e){
+			e.preventDefault();
+		}
 
 		window.onkeydown = function(e){
 			console.log(e.keyCode);
