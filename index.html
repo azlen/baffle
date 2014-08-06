@@ -59,8 +59,10 @@
 			color:#fff;
 			transition:all .5s;
 		}
-		.hex span:before, .hex span:after{
+		.hex span:before{
 			position:absolute;
+			color:#222;
+			font-size:30px;
 		}
 
 		.hex:hover span{
@@ -130,45 +132,49 @@
 
 		.hex.top-left-arrow span:before{
 			content:"\2190";
-			font-size:30px;
 			left:5%;
 			top:-35px;
 			-webkit-transform: rotate(60deg);
+			-webkit-animation:fadein 1s;
 		}
 		.hex.top-right-arrow span:before{
 			content:"\2192";
-			font-size:30px;
 			left:60%;
 			top:-35px;
 			-webkit-transform: rotate(-60deg);
+			-webkit-animation:fadein 1s;
 		}
 		.hex.left-arrow span:before{
 			content:"\2190";
-			font-size:30px;
 			left:-15%;
-			top:10px
+			top:10px;
+			-webkit-animation:fadein 1s;
 		}
 		.hex.right-arrow span:before{
 			content:"\2192";
-			font-size:30px;
 			left:85%;
-			top:10px
+			top:10px;
+			-webkit-animation:fadein 1s;
 		}
 		.hex.bottom-left-arrow span:before{
 			content:"\2190";
-			font-size:30px;
 			left:10%;
 			top:60px;
 			-webkit-transform: rotate(-60deg);
+			-webkit-animation:fadein 1s;
 		}
 		.hex.bottom-right-arrow span:before{
 			content:"\2192";
-			font-size:30px;
 			left:60%;
 			top:60px;
 			-webkit-transform: rotate(60deg);
+			-webkit-animation:fadein 1s;
 		}
 		
+		@-webkit-keyframes fadein{
+			0%{color:rgba(0,0,0,0)},
+			100%{color:#222;}
+		}
 	</style>
 </head>
 <body ontouchmove="iosblockmove(event)">
