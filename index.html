@@ -230,35 +230,6 @@
 		var selected = '';
 		var found = [];
 		var lasthexclicked = undefined;
-		var alphabetweight = { // FREQUENCY OF LETTERS IN DICTIONARY
-			//NUMBER*1000
-			a:40,
-			b:10,
-			c:20,
-			d:20,
-			e:60,
-			f:7,
-			g:15,
-			h:10,
-			i:45,
-			j:1,
-			k:5,
-			l:25,
-			m:13,
-			n:35,
-			o:30,
-			p:15,
-			q:1,
-			r:35,
-			s:45,
-			t:35,
-			u:16,
-			v:5,
-			w:5,
-			x:2,
-			y:8,
-			z:2,
-		}
 		alphabetweight = { //SCRABBLE
 			a:9,
 			b:2,
@@ -332,6 +303,11 @@
 		var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 		var aw = '';
 		var totalweight = 0;
+
+		var hexes = [];
+
+		var foundwords = [];
+
 		for(var i = 0; i < alphabet.length; i++){
 			totalweight += alphabetweight[alphabet[i]];
 			for(var e = 0; e < alphabetweight[alphabet[i]]; e++){
@@ -345,9 +321,11 @@
 				if(letter === 'q')letter = 'qu';
 				board.children[row].children[hex].children[0].textContent = letter.toUpperCase();
 				board.children[row].children[hex].setAttribute('data-letter',letter);
+				hexes.push(letter);
 
 			}
 		}
+		solve();
 		function hexclick(hex){
 			if(hex.classList.contains('selectable') || selected === ''){
 				if(document.querySelector('#tempstyle'))document.querySelector('#tempstyle').remove();
@@ -379,13 +357,13 @@
 		}
 
 		function enter(){
-			if(wordlist.indexOf(selected) != -1 && found.indexOf(selected) === -1){
+			if(wordlist.all.indexOf(selected) != -1 && found.indexOf(selected) === -1){
 				var element = document.createElement('li');
 				element.textContent = selected;
 				document.querySelector('#wordlist').appendChild(element);
 				found.push(selected)
 			}
-			if(document.querySelector('.first'))document.querySelector('.first').classList.remove('first');
+			if(document.querySelector('.first')) document.querySelector('.first').classList.remove('first');
 			selected = '';
 			for(var i = 0; i < 19; i++){
 				if(document.querySelectorAll('.selectable')[0])document.querySelectorAll('.selectable')[0].classList.remove('selectable');
@@ -404,6 +382,38 @@
 			lasthexclicked = undefined;
 		}
 		enter();
+
+		function find(letters, array){
+			array = array || wordlist.all;
+			return array.filter(function(el){return el.substr(0,letters.length) === letters});
+		}
+
+		function solve(){
+			var start = new Date();
+			for(var i = 1; i <= 19; i++){
+				solve2(i, [], hexes[i-1], wordlist[hexes[i-1]]);
+			}
+			console.log('Solved in ' + (new Date() - start) + ' ms');
+			console.log('Found '+foundwords.length+' words');
+		}
+		//number, used numbers, letters, array
+		function solve2(n,usedn,letters,array){
+			usedn.push(n);
+			var adjacent = hexadj[n-1]; // adjacent hexes
+			for(var i = 0; i < adjacent.length; i++){ // loop to check all adjacent hexes
+				if(usedn.indexOf(adjacent[i]) === -1){ // make sure it is not checking a used hex
+					var word = letters+hexes[adjacent[i] - 1];
+					var newarray = find(word, array);
+
+					if(newarray.length > 0){
+						if(newarray[0] === word && foundwords.indexOf(word) === -1){
+							foundwords.push(word);
+						}
+						if(newarray.length > 1) solve2(adjacent[i], usedn.slice(0), word, newarray);
+					}
+				}
+			}
+		}
 
 		function iosblockmove(e){
 			e.preventDefault();
